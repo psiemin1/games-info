@@ -5,14 +5,38 @@ body {
   background-color: #f4f4f4;
 }
 
+body.dark-mode {
+  background-color: #1e1e1e; /* Dark background */
+  color: #dcdcdc; /* Light text */
+}
+
 .app-container {
   display: flex;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 1000;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  z-index: 1000;
 }
 
 .content {
   flex: 1;
   padding: 20px;
+  margin-left: 250px; /* Adjust based on navbar width */
+  margin-right: 250px; /* Adjust based on sidebar width */
 }
+
 .games-grid {
   display: flex;
   gap: 20px;
@@ -28,6 +52,11 @@ body {
   width: 250px;
 }
 
+body.dark-mode .game-card {
+  background: #333; /* Dark grey */
+  color: #dcdcdc; /* Light text */
+}
+
 .game-card img {
   width: 100%;
   border-radius: 8px;
@@ -38,9 +67,17 @@ body {
   font-size: 18px;
 }
 
+body.dark-mode .game-card h3 {
+  color: #dcdcdc; /* Light text */
+}
+
 .game-card p {
   font-size: 14px;
   color: #666;
+}
+
+body.dark-mode .game-card p {
+  color: #dcdcdc; /* Light text */
 }
 
 @media (max-width: 768px) {
@@ -48,4 +85,8 @@ body {
     flex-direction: column;
     align-items: center;
   }
+}
+
+.home-container .info-card {
+  margin-bottom: 20px; /* Add spacing between messages */
 }
